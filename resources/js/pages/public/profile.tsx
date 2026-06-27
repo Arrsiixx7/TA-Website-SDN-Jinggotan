@@ -157,60 +157,60 @@ export default function Profile({
                         </h2>
                         <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-primary" />
                     </div>
-                    <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                         <Link
                             href={route('public.students')}
-                            className="group block cursor-pointer rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+                            className="group block cursor-pointer rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10"
                         >
-                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20">
-                                <Users className="h-6 w-6 text-primary" />
+                            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20 md:mb-4 md:h-12 md:w-12">
+                                <Users className="h-5 w-5 text-primary md:h-6 md:w-6" />
                             </div>
-                            <p className="mb-3 text-5xl font-extrabold text-primary">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {schoolProfile?.total_students || 0}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Siswa Aktif
                             </p>
                         </Link>
                         <Link
                             href={route('public.teachers')}
-                            className="group block cursor-pointer rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+                            className="group block cursor-pointer rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10"
                         >
-                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20">
-                                <GraduationCap className="h-6 w-6 text-primary" />
+                            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20 md:mb-4 md:h-12 md:w-12">
+                                <GraduationCap className="h-5 w-5 text-primary md:h-6 md:w-6" />
                             </div>
-                            <p className="mb-3 text-5xl font-extrabold text-primary">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {schoolProfile?.total_teachers || 0}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Tenaga Pendidik
                             </p>
                         </Link>
                         <Link
                             href={route('public.classrooms')}
-                            className="group block cursor-pointer rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+                            className="group block cursor-pointer rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10"
                         >
-                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20">
-                                <School className="h-6 w-6 text-primary" />
+                            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20 md:mb-4 md:h-12 md:w-12">
+                                <School className="h-5 w-5 text-primary md:h-6 md:w-6" />
                             </div>
-                            <p className="mb-3 text-5xl font-extrabold text-primary">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {schoolProfile?.total_classes || 0}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Ruang Kelas
                             </p>
                         </Link>
                         <Link
                             href={route('public.achievements')}
-                            className="group block cursor-pointer rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+                            className="group block cursor-pointer rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10"
                         >
-                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20">
-                                <Trophy className="h-6 w-6 text-primary" />
+                            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 transition group-hover:bg-primary/20 md:mb-4 md:h-12 md:w-12">
+                                <Trophy className="h-5 w-5 text-primary md:h-6 md:w-6" />
                             </div>
-                            <p className="mb-3 text-5xl font-extrabold text-primary">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {schoolProfile?.total_achievements || 0}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Prestasi Diraih
                             </p>
                         </Link>
@@ -219,19 +219,20 @@ export default function Profile({
             </section>
 
             {/* SchoolHistory */}
-            <section className="bg-white py-24">
-                <div className="mx-auto max-w-7xl px-6 text-center">
-                    <p className="mb-3 font-semibold text-primary">Sejarah</p>
-                    <h2 className="mb-8 text-3xl font-bold text-gray-800 md:text-4xl">
+            <section className="bg-white py-16">
+                <div className="mx-auto max-w-3xl px-6 text-center">
+                    <p className="mb-2 text-sm font-semibold text-primary">
+                        Sejarah
+                    </p>
+                    <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
                         Perjalanan Awal Sekolah
                     </h2>
-                    <div className="mx-auto mb-6 h-1 w-20 rounded-full bg-primary" />
-                    <p className="mb-6 leading-relaxed text-gray-600">
+                    <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
                         SD Negeri Jinggotan berdiri sejak tahun 1985 dan telah
                         menjadi bagian penting dalam mencerdaskan kehidupan
                         masyarakat sekitar.
                     </p>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="text-sm leading-relaxed text-gray-600 md:text-base">
                         Dengan dukungan tenaga pendidik profesional dan
                         fasilitas yang terus berkembang, sekolah ini terus
                         berinovasi dalam memberikan pendidikan yang berkualitas
@@ -241,48 +242,117 @@ export default function Profile({
             </section>
 
             {/* SchoolTimeline */}
-            <section className="bg-gray-50 py-24">
+            <section className="bg-gray-50 py-16">
                 <div className="mx-auto max-w-7xl px-6">
-                    <div className="mb-20 text-center">
-                        <p className="mb-3 font-semibold text-primary">
+                    <div className="mb-12 text-center">
+                        <p className="mb-2 text-sm font-semibold text-primary">
                             Timeline
                         </p>
                         <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
                             Perjalanan Sekolah
                         </h2>
-                        <p className="mt-3 text-gray-600">
+                        <p className="mt-2 text-sm text-gray-600">
                             Perkembangan SD Negeri Jinggotan dari masa ke masa
                         </p>
                     </div>
 
                     <div className="relative mx-auto max-w-4xl">
-                        {/* Center line */}
-                        <div className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2 rounded-full bg-gray-200" />
+                        {/* Center vertical line for desktop */}
+                        <div className="absolute top-0 left-1/2 hidden h-full w-0.5 -translate-x-1/2 bg-gray-200 md:block" />
 
-                        <div className="space-y-16">
+                        {/* Mobile: Simple vertical list */}
+                        <div className="space-y-4 md:space-y-8">
                             {displayTimelines.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className={`relative flex items-center ${
-                                        index % 2 === 0
-                                            ? 'justify-start'
-                                            : 'justify-end'
-                                    }`}
-                                >
-                                    <div className="w-full rounded-2xl bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl md:w-5/12">
-                                        <span className="font-bold text-primary">
-                                            {item.year}
-                                        </span>
-                                        <h4 className="mt-2 text-lg font-semibold text-gray-900">
-                                            {item.title}
-                                        </h4>
-                                        <p className="mt-2 text-sm text-gray-600">
-                                            {item.desc}
-                                        </p>
+                                <div key={index} className="relative">
+                                    {/* Mobile card */}
+                                    <div className="md:hidden">
+                                        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                                            <span className="font-bold text-primary">
+                                                {item.year}
+                                            </span>
+                                            <h4 className="mt-1 text-base font-semibold text-gray-900">
+                                                {item.title}
+                                            </h4>
+                                            <p className="mt-1 text-sm text-gray-600">
+                                                {item.desc}
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    {/* Dot */}
-                                    <div className="absolute top-1/2 left-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow" />
+                                    {/* Desktop: alternating left-right with center dot */}
+                                    <div className="relative hidden md:flex md:gap-0">
+                                        {/* Left side */}
+                                        {index % 2 === 0 ? (
+                                            <div className="flex w-5/12 items-center justify-end pr-8">
+                                                <div className="w-full rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                                                    <span className="font-bold text-primary">
+                                                        {item.year}
+                                                    </span>
+                                                    <h4 className="mt-1 text-base font-semibold text-gray-900">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="mt-1 text-sm text-gray-600">
+                                                        {item.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="flex w-5/12 items-center justify-end pr-8">
+                                                <div className="invisible w-full rounded-xl bg-white p-6 shadow-sm">
+                                                    <span className="font-bold text-primary">
+                                                        {item.year}
+                                                    </span>
+                                                    <h4 className="mt-1 text-base font-semibold text-gray-900">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="mt-1 text-sm text-gray-600">
+                                                        {item.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Center column with dot */}
+                                        <div className="relative w-2/12">
+                                            {/* Vertical line */}
+                                            <div className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-gray-200" />
+                                            {/* Dot centered vertically */}
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                                <div className="h-3 w-3 rounded-full bg-primary ring-4 ring-white" />
+                                            </div>
+                                        </div>
+
+                                        {/* Right side */}
+                                        {index % 2 === 1 ? (
+                                            <div className="flex w-5/12 items-center justify-start pl-8">
+                                                <div className="w-full rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                                                    <span className="font-bold text-primary">
+                                                        {item.year}
+                                                    </span>
+                                                    <h4 className="mt-1 text-base font-semibold text-gray-900">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="mt-1 text-sm text-gray-600">
+                                                        {item.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="flex w-5/12 items-center justify-start pl-8">
+                                                <div className="invisible w-full rounded-xl bg-white p-6 shadow-sm">
+                                                    <span className="font-bold text-primary">
+                                                        {item.year}
+                                                    </span>
+                                                    <h4 className="mt-1 text-base font-semibold text-gray-900">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="mt-1 text-sm text-gray-600">
+                                                        {item.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -295,10 +365,13 @@ export default function Profile({
                 <section className="bg-white py-16">
                     <div className="mx-auto max-w-7xl px-6">
                         <div className="mb-12 text-center">
-                            <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
+                            <p className="mt-2 text-sm font-medium text-primary">
                                 Visi & Misi
+                            </p>
+                            <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
+                                Arah Pengembangan Sekolah
                             </h2>
-                            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
+                            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-primary" />
                         </div>
                         <div className="grid items-center gap-10 lg:grid-cols-2">
                             {/* Image */}
@@ -307,10 +380,10 @@ export default function Profile({
                                     <img
                                         src={visionMission.image_url}
                                         alt="Visi & Misi"
-                                        className="h-[320px] w-full rounded-3xl object-cover shadow-lg transition duration-500 group-hover:scale-105"
+                                        className="h-80 w-full rounded-3xl object-cover shadow-lg transition duration-500 group-hover:scale-105"
                                     />
                                 ) : (
-                                    <div className="flex h-[320px] w-full items-center justify-center rounded-3xl border border-primary/10 bg-linear-to-br from-primary/10 to-primary/5">
+                                    <div className="flex h-80 w-full items-center justify-center rounded-3xl border border-primary/10 bg-linear-to-br from-primary/10 to-primary/5">
                                         <div className="text-center">
                                             <p className="text-sm font-semibold text-primary">
                                                 Preview Gambar
@@ -319,22 +392,23 @@ export default function Profile({
                                     </div>
                                 )}
                             </div>
-                            <div className="space-y-6">
-                                {/* Visi */}
-                                <div className="rounded-2xl border border-primary/10 bg-gray-50 p-6 shadow-sm transition duration-300 hover:shadow-md">
-                                    <h3 className="mb-3 text-xl font-bold text-gray-800">
+                            {/* Right: Visi & Misi Cards */}
+                            <div className="space-y-4">
+                                {/* Visi Card */}
+                                <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                                    <h3 className="mb-2 text-base font-bold text-gray-800">
                                         Visi
                                     </h3>
-                                    <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+                                    <p className="text-sm leading-relaxed text-gray-600">
                                         {visionMission.vision}
                                     </p>
                                 </div>
-                                {/* Misi */}
-                                <div className="rounded-2xl border border-primary/10 bg-gray-50 p-6 shadow-sm transition duration-300 hover:shadow-md">
-                                    <h3 className="mb-3 text-xl font-bold text-gray-800">
+                                {/* Misi Card */}
+                                <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                                    <h3 className="mb-2 text-base font-bold text-gray-800">
                                         Misi
                                     </h3>
-                                    <ul className="space-y-2 text-sm text-gray-600 md:text-base">
+                                    <ul className="space-y-2 text-sm text-gray-600">
                                         {visionMission.mission
                                             .split('\n')
                                             .filter((i) => i.trim() !== '')
@@ -343,9 +417,7 @@ export default function Profile({
                                                     key={idx}
                                                     className="flex items-start gap-2"
                                                 >
-                                                    <span className="mt-1 text-xs text-primary">
-                                                        ●
-                                                    </span>
+                                                    <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
                                                     <span>
                                                         {item.replace(
                                                             /^\d+\.\s*/,
@@ -366,25 +438,29 @@ export default function Profile({
             {(teachers.length > 0 || staff.length > 0 || principal) && (
                 <section className="bg-gray-50 py-16">
                     <div className="mx-auto max-w-7xl px-6">
-                        <div className="relative mb-12 text-center">
+                        <div className="relative mb-8 text-center md:mb-12">
+                            <p className="mb-2 text-sm font-medium text-primary">
+                                Struktur Organisasi
+                            </p>
                             <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
                                 Tim Pengelola Sekolah
                             </h2>
                             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
+                            {/* Lihat Semua Button - Desktop (top right) */}
                             <Link
                                 href={route('public.teachers')}
-                                className="absolute top-0 right-0 rounded-lg bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90"
+                                className="absolute top-0 right-0 hidden rounded-lg bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90 md:block"
                             >
                                 Lihat Semua
                             </Link>
                         </div>
-                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             {[principal, ...teachers.slice(0, 2)].map(
                                 (person, idx) =>
                                     person && (
                                         <div
                                             key={idx}
-                                            className="rounded-2xl bg-white p-8 text-center shadow transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                                            className="rounded-2xl bg-white p-6 text-center shadow transition duration-300 hover:-translate-y-2 hover:shadow-lg md:p-8"
                                         >
                                             <img
                                                 src={
@@ -412,6 +488,15 @@ export default function Profile({
                                         </div>
                                     ),
                             )}
+                        </div>
+                        {/* Lihat Semua Button - Mobile */}
+                        <div className="flex justify-center pt-6 md:hidden">
+                            <Link
+                                href={route('public.teachers')}
+                                className="rounded-xl bg-primary px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-primary/90 hover:shadow-xl"
+                            >
+                                Lihat Semua
+                            </Link>
                         </div>
                     </div>
                 </section>

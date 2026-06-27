@@ -73,7 +73,8 @@ export default function Teachers({ principal, teachers, staff }: Props) {
                         Tenaga Pendidik
                     </span>
                     <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
-                        Guru & Tenaga Kependidikan
+                        Guru & Tenaga{' '}
+                        <span className="text-secondary">Kependidikan</span>
                     </h1>
                     <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600">
                         SD Negeri Jinggotan memiliki tenaga pendidik profesional
@@ -85,38 +86,38 @@ export default function Teachers({ principal, teachers, staff }: Props) {
             </section>
 
             {/* GuruSummarySection */}
-            <section className="border-b border-gray-100 bg-white py-24">
+            <section className="bg-gray-50 py-16 md:py-24">
                 <div className="mx-auto max-w-7xl px-6 text-center">
-                    <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-                        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-10 transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-bold text-primary md:text-5xl">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {total}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Total Tenaga Pendidik
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-10 transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-bold text-primary md:text-5xl">
+                        <div className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {kepala ? 1 : 0}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Kepala Sekolah
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-10 transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-bold text-primary md:text-5xl">
+                        <div className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {teachers.length}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Guru Kelas
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-10 transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-bold text-primary md:text-5xl">
+                        <div className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {tendikCount}
                             </p>
-                            <p className="text-xs tracking-widest text-gray-500 uppercase">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs md:tracking-widest">
                                 Tenaga Kependidikan
                             </p>
                         </div>
@@ -126,11 +127,15 @@ export default function Teachers({ principal, teachers, staff }: Props) {
 
             {/* KepalaSekolahSection */}
             {kepala && (
-                <section className="bg-white py-24 text-center">
-                    <div className="mx-auto max-w-7xl px-6">
-                        <h2 className="mb-10 text-3xl font-bold text-gray-900">
+                <section className="bg-white py-16">
+                    <div className="mx-auto max-w-7xl px-6 text-center">
+                        <p className="mb-2 text-sm font-medium text-primary">
+                            Struktur Organisasi
+                        </p>
+                        <h2 className="mb-4 text-3xl font-bold text-gray-800 md:text-4xl">
                             Kepala Sekolah
                         </h2>
+                        <div className="mx-auto mb-8 h-1 w-16 rounded-full bg-primary" />
                         <div className="flex justify-center">
                             <div className="w-72">
                                 <GuruCard teacher={kepala} />
@@ -192,6 +197,7 @@ export default function Teachers({ principal, teachers, staff }: Props) {
                         <h2 className="mb-12 text-3xl font-bold text-gray-900">
                             Tenaga Kependidikan
                         </h2>
+                        <div className="mx-auto mb-8 h-1 w-16 rounded-full bg-primary" />
                         <div className="flex justify-center">
                             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                                 {staff.map((s) => (

@@ -62,63 +62,101 @@ export default function GallerySection({ galleries }: GallerySectionProps) {
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
-                        Galeri Kegiatan
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500">
-                        Dokumentasi aktivitas sekolah
-                    </p>
-                </div>
-
-                {/* Mobile: Vertical Cards (like news) */}
-                <div className="grid gap-4 md:hidden">
-                    {galleries.slice(0, 3).map((gallery) => (
-                        <Link
-                            key={gallery.id}
-                            href={route('public.gallery')}
-                            className="group overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md"
-                        >
-                            <div className="overflow-hidden">
-                                {gallery.image_url ? (
-                                    <img
-                                        src={gallery.image_url}
-                                        alt={gallery.title || 'Gallery'}
-                                        className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
-                                    />
-                                ) : (
-                                    <div className="flex h-48 w-full items-center justify-center bg-primary/5">
-                                        <Trophy className="h-10 w-10 text-primary/20" />
-                                    </div>
-                                )}
-                            </div>
-                            {gallery.title && (
-                                <div className="p-4">
-                                    <h3 className="font-semibold text-gray-800">
-                                        {gallery.title}
-                                    </h3>
-                                </div>
-                            )}
-                        </Link>
-                    ))}
-
-                    {/* Lihat Semua Button - Mobile */}
-                    <div className="flex justify-center pt-2">
+                <div className="relative mb-8">
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
+                            Galeri Kegiatan
+                        </h2>
+                        <p className="mt-1 text-sm text-gray-500">
+                            Dokumentasi aktivitas sekolah
+                        </p>
+                    </div>
+                    {/* Lihat Semua Button - Desktop (top right) */}
+                    <div className="absolute top-0 right-0 hidden md:block">
                         <Link
                             href={route('public.gallery')}
-                            className="rounded-xl bg-primary px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-primary/90 hover:shadow-xl"
+                            className="rounded-xl bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90"
                         >
-                            Lihat Semua Galeri
+                            Lihat Semua
                         </Link>
                     </div>
                 </div>
 
-                {/* Desktop: Featured + Grid */}
+                {/* Mobile: 4 cards stacked vertically, all clickable */}
+                <div className="flex flex-col gap-4 md:hidden">
+                    {/* Main card */}
+                    {mainGallery && (
+                        <div
+                            className="group relative cursor-pointer overflow-hidden rounded-2xl"
+                            onClick={handleMainClick}
+                        >
+                            {mainGallery.image_url ? (
+                                <img
+                                    src={mainGallery.image_url}
+                                    alt={mainGallery.title || 'Gallery'}
+                                    className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                                />
+                            ) : (
+                                <div className="flex h-48 w-full items-center justify-center bg-gray-100">
+                                    <Trophy className="h-10 w-10 text-gray-300" />
+                                </div>
+                            )}
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                                <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-medium text-gray-800 shadow-lg">
+                                    <ZoomIn className="h-3 w-3" />
+                                    Lihat Foto
+                                </div>
+                            </div>
+                            {mainGallery.title && (
+                                <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-3">
+                                    <p className="text-xs font-semibold text-white">
+                                        {mainGallery.title}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Grid cards */}
+                    {gridGalleries.map((gallery, idx) => (
+                        <div
+                            key={gallery.id}
+                            className="group relative cursor-pointer overflow-hidden rounded-2xl"
+                            onClick={() => handleGridClick(idx)}
+                        >
+                            {gallery.image_url ? (
+                                <img
+                                    src={gallery.image_url}
+                                    alt={gallery.title || 'Gallery'}
+                                    className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
+                                />
+                            ) : (
+                                <div className="flex h-40 w-full items-center justify-center bg-gray-100">
+                                    <Trophy className="h-8 w-8 text-gray-300" />
+                                </div>
+                            )}
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                                <div className="rounded-full bg-white/90 p-2 shadow-lg">
+                                    <ZoomIn className="h-4 w-4 text-gray-800" />
+                                </div>
+                            </div>
+                            {gallery.title && (
+                                <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-3">
+                                    <p className="text-xs font-medium text-white">
+                                        {gallery.title}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop: 1 large + 3 small grid */}
                 <div className="hidden md:block">
                     {/* Featured Image */}
                     {mainGallery && (
                         <div
-                            className="group relative mb-8 cursor-pointer overflow-hidden rounded-3xl"
+                            className="group relative mb-6 cursor-pointer overflow-hidden rounded-3xl"
                             onClick={handleMainClick}
                         >
                             {mainGallery.image_url ? (
@@ -128,8 +166,8 @@ export default function GallerySection({ galleries }: GallerySectionProps) {
                                     className="aspect-video w-full object-cover transition duration-500 group-hover:scale-105"
                                 />
                             ) : (
-                                <div className="flex aspect-video w-full items-center justify-center bg-primary/5">
-                                    <Trophy className="h-16 w-16 text-primary/20" />
+                                <div className="flex aspect-video w-full items-center justify-center bg-gray-100">
+                                    <Trophy className="h-16 w-16 text-gray-300" />
                                 </div>
                             )}
                             <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
@@ -148,8 +186,8 @@ export default function GallerySection({ galleries }: GallerySectionProps) {
                         </div>
                     )}
 
-                    {/* Grid */}
-                    <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
+                    {/* Grid - 3 columns */}
+                    <div className="grid grid-cols-3 gap-6">
                         {gridGalleries.map((gallery, idx) => (
                             <div
                                 key={gallery.id}
@@ -163,8 +201,8 @@ export default function GallerySection({ galleries }: GallerySectionProps) {
                                         className="aspect-4/3 w-full object-cover transition duration-500 group-hover:scale-105"
                                     />
                                 ) : (
-                                    <div className="flex aspect-4/3 w-full items-center justify-center bg-primary/5">
-                                        <Trophy className="h-8 w-8 text-primary/20" />
+                                    <div className="flex aspect-4/3 w-full items-center justify-center bg-gray-100">
+                                        <Trophy className="h-8 w-8 text-gray-300" />
                                     </div>
                                 )}
                                 <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
@@ -182,6 +220,16 @@ export default function GallerySection({ galleries }: GallerySectionProps) {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                {/* Lihat Semua Button - Mobile (bottom center) */}
+                <div className="flex justify-center pt-6 md:hidden">
+                    <Link
+                        href={route('public.gallery')}
+                        className="rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-primary/90 hover:shadow-xl"
+                    >
+                        Lihat Semua Galeri
+                    </Link>
                 </div>
             </div>
 

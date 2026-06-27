@@ -73,7 +73,22 @@ return [
     |
     */
 
-    'home' => '/dashboard',
+    'home' => '/admin/dashboard',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Login Redirect
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the path where users will get redirected after
+    | a successful login operation.
+    |
+    */
+
+    'redirects' => [
+        'login' => '/admin/dashboard',
+        'logout' => '/admin',
+    ],
 
     /*
     |--------------------------------------------------------------------------

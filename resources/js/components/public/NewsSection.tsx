@@ -14,13 +14,24 @@ export default function NewsSection({ news }: NewsSectionProps) {
         <section className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
-                        Berita Terbaru
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500">
-                        Informasi dan kegiatan terbaru sekolah
-                    </p>
+                <div className="relative mb-8">
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
+                            Berita Terbaru
+                        </h2>
+                        <p className="mt-1 text-sm text-gray-500">
+                            Informasi dan kegiatan terbaru sekolah
+                        </p>
+                    </div>
+                    {/* Lihat Semua Button - Desktop (top right) */}
+                    <div className="absolute top-0 right-0 hidden md:block">
+                        <Link
+                            href={route('public.news')}
+                            className="rounded-xl bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90"
+                        >
+                            Lihat Semua
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Mobile: Vertical Cards */}
@@ -107,16 +118,6 @@ export default function NewsSection({ news }: NewsSectionProps) {
                             </div>
                         </Link>
                     ))}
-                </div>
-
-                {/* Lihat Semua Button - Desktop */}
-                <div className="mt-8 hidden justify-end md:mt-12 md:flex">
-                    <Link
-                        href={route('public.news')}
-                        className="rounded-xl bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90"
-                    >
-                        Lihat Semua
-                    </Link>
                 </div>
             </div>
         </section>

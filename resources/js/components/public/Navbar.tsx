@@ -62,12 +62,12 @@ export default function Navbar() {
                     ))}
                 </ul>
 
-                {/* PPDB Button */}
+                {/* SPMB Button */}
                 <Link
                     href={route('public.ppdb')}
                     className="hidden rounded-xl bg-secondary px-5 py-2 font-semibold text-white shadow-md transition duration-300 hover:opacity-90 md:inline-block"
                 >
-                    PPDB
+                    SPMB
                 </Link>
 
                 {/* Mobile Menu Button */}
@@ -105,7 +105,7 @@ export default function Navbar() {
                             onClick={() => setMobileMenuOpen(false)}
                             className="block rounded-xl bg-secondary py-3 text-center font-semibold text-white shadow-md"
                         >
-                            PPDB
+                            SPMB
                         </Link>
                     </div>
                 </div>

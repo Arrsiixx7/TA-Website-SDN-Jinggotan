@@ -20,7 +20,7 @@ const routes: Record<
     'public.academic': '/akademik',
     'public.students': '/siswa',
     'public.classrooms': '/ruang-kelas',
-    'public.ppdb': '/ppdb',
+    'public.ppdb': '/spmb',
     'public.facilities.show': (params) => `/fasilitas/${params?.slug}`,
 
     // Admin routes

@@ -19,6 +19,8 @@ export default function Gallery({ galleries }: Props) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
     const allImages = galleries.data;
+    const mainGallery = allImages[0];
+    const gridGalleries = allImages.slice(1, 4);
 
     const openModal = useCallback((index: number) => {
         setSelectedIndex(index);
@@ -83,71 +85,72 @@ export default function Gallery({ galleries }: Props) {
 
             {/* GalleryGrid */}
             <section className="bg-white pb-32">
-                <div className="mx-auto max-w-6xl px-6">
+                <div className="mx-auto max-w-7xl px-6">
                     {allImages.length > 0 ? (
                         <>
-                            {/* Featured Image */}
-                            {allImages[0] && (
-                                <div
-                                    className="group relative mb-12 cursor-pointer overflow-hidden rounded-3xl"
-                                    onClick={() => openModal(0)}
-                                >
-                                    {allImages[0].image_url ? (
-                                        <img
-                                            src={allImages[0].image_url}
-                                            alt={
-                                                allImages[0].title ||
-                                                'Gallery Image'
-                                            }
-                                            className="aspect-video w-full object-cover transition duration-500 group-hover:scale-105"
-                                        />
-                                    ) : (
-                                        <div className="flex aspect-video w-full items-center justify-center bg-primary/5">
-                                            <Trophy className="h-16 w-16 text-primary/20" />
+                            {/* Mobile: 4 cards stacked vertically, all clickable with lightbox */}
+                            <div className="flex flex-col gap-4 md:hidden">
+                                {/* Main card */}
+                                {mainGallery && (
+                                    <div
+                                        className="group relative cursor-pointer overflow-hidden rounded-2xl"
+                                        onClick={() => openModal(0)}
+                                    >
+                                        {mainGallery.image_url ? (
+                                            <img
+                                                src={mainGallery.image_url}
+                                                alt={
+                                                    mainGallery.title ||
+                                                    'Gallery'
+                                                }
+                                                className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                                            />
+                                        ) : (
+                                            <div className="flex h-48 w-full items-center justify-center bg-gray-100">
+                                                <Trophy className="h-10 w-10 text-gray-300" />
+                                            </div>
+                                        )}
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                                            <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-medium text-gray-800 shadow-lg">
+                                                <ZoomIn className="h-3 w-3" />
+                                                Lihat Foto
+                                            </div>
                                         </div>
-                                    )}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
-                                        <div className="flex items-center gap-2 rounded-full bg-white/90 px-5 py-2.5 text-sm font-medium text-gray-800 shadow-lg">
-                                            <ZoomIn className="h-4 w-4" />
-                                            Lihat Foto
-                                        </div>
+                                        {mainGallery.title && (
+                                            <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-3">
+                                                <p className="text-xs font-semibold text-white">
+                                                    {mainGallery.title}
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
-                                    {allImages[0].title && (
-                                        <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-6">
-                                            <p className="text-sm font-semibold text-white">
-                                                {allImages[0].title}
-                                            </p>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
+                                )}
 
-                            {/* Grid */}
-                            <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
-                                {allImages.slice(1).map((gallery, idx) => (
+                                {/* Grid cards - 3 small cards */}
+                                {gridGalleries.map((gallery, idx) => (
                                     <div
                                         key={gallery.id}
-                                        className="group relative cursor-pointer overflow-hidden rounded-xl"
+                                        className="group relative cursor-pointer overflow-hidden rounded-2xl"
                                         onClick={() => openModal(idx + 1)}
                                     >
                                         {gallery.image_url ? (
                                             <img
                                                 src={gallery.image_url}
                                                 alt={gallery.title || 'Gallery'}
-                                                className="aspect-4/3 w-full object-cover transition duration-500 group-hover:scale-105"
+                                                className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
                                             />
                                         ) : (
-                                            <div className="flex aspect-4/3 w-full items-center justify-center bg-primary/5">
-                                                <Trophy className="h-8 w-8 text-primary/20" />
+                                            <div className="flex h-40 w-full items-center justify-center bg-gray-100">
+                                                <Trophy className="h-8 w-8 text-gray-300" />
                                             </div>
                                         )}
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
-                                            <div className="rounded-full bg-white/90 p-3 shadow-lg">
-                                                <ZoomIn className="h-5 w-5 text-gray-800" />
+                                            <div className="rounded-full bg-white/90 p-2 shadow-lg">
+                                                <ZoomIn className="h-4 w-4 text-gray-800" />
                                             </div>
                                         </div>
                                         {gallery.title && (
-                                            <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-4">
+                                            <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-3">
                                                 <p className="text-xs font-medium text-white">
                                                     {gallery.title}
                                                 </p>
@@ -155,6 +158,83 @@ export default function Gallery({ galleries }: Props) {
                                         )}
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* Desktop: Featured + Grid */}
+                            <div className="hidden md:block">
+                                {/* Featured Image */}
+                                {mainGallery && (
+                                    <div
+                                        className="group relative mb-12 cursor-pointer overflow-hidden rounded-3xl"
+                                        onClick={() => openModal(0)}
+                                    >
+                                        {mainGallery.image_url ? (
+                                            <img
+                                                src={mainGallery.image_url}
+                                                alt={
+                                                    mainGallery.title ||
+                                                    'Gallery Image'
+                                                }
+                                                className="aspect-video w-full object-cover transition duration-500 group-hover:scale-105"
+                                            />
+                                        ) : (
+                                            <div className="flex aspect-video w-full items-center justify-center bg-gray-100">
+                                                <Trophy className="h-16 w-16 text-gray-300" />
+                                            </div>
+                                        )}
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                                            <div className="flex items-center gap-2 rounded-full bg-white/90 px-5 py-2.5 text-sm font-medium text-gray-800 shadow-lg">
+                                                <ZoomIn className="h-4 w-4" />
+                                                Lihat Foto
+                                            </div>
+                                        </div>
+                                        {mainGallery.title && (
+                                            <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-6">
+                                                <p className="text-sm font-semibold text-white">
+                                                    {mainGallery.title}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* Grid */}
+                                <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
+                                    {allImages.slice(1).map((gallery, idx) => (
+                                        <div
+                                            key={gallery.id}
+                                            className="group relative cursor-pointer overflow-hidden rounded-xl"
+                                            onClick={() => openModal(idx + 1)}
+                                        >
+                                            {gallery.image_url ? (
+                                                <img
+                                                    src={gallery.image_url}
+                                                    alt={
+                                                        gallery.title ||
+                                                        'Gallery'
+                                                    }
+                                                    className="aspect-4/3 w-full object-cover transition duration-500 group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <div className="flex aspect-4/3 w-full items-center justify-center bg-gray-100">
+                                                    <Trophy className="h-8 w-8 text-gray-300" />
+                                                </div>
+                                            )}
+                                            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                                                <div className="rounded-full bg-white/90 p-3 shadow-lg">
+                                                    <ZoomIn className="h-5 w-5 text-gray-800" />
+                                                </div>
+                                            </div>
+                                            {gallery.title && (
+                                                <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-4">
+                                                    <p className="text-xs font-medium text-white">
+                                                        {gallery.title}
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Pagination */}

@@ -145,36 +145,43 @@ export default function Academic({
 
             {/* ProgramUnggulan */}
             {programs && programs.length > 0 && (
-                <section className="bg-gray-50 py-24">
+                <section className="bg-gray-50 py-16">
                     <div className="mx-auto max-w-7xl px-6 text-center">
-                        <div className="mb-16">
-                            <span className="text-sm font-semibold text-primary">
+                        <div className="mb-12">
+                            <p className="mb-3 font-semibold text-primary">
                                 Program Unggulan
-                            </span>
-                            <h2 className="mt-3 text-3xl font-bold text-gray-900">
+                            </p>
+                            <h2 className="text-3xl font-bold text-gray-900">
                                 Program Prioritas Sekolah
                             </h2>
+                            <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
                         </div>
-                        <div className="grid gap-8 md:grid-cols-3">
+                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                             {programs.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="overflow-hidden rounded-2xl bg-white shadow"
+                                    className="group overflow-hidden rounded-2xl border bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
                                 >
-                                    {item.image_url ? (
-                                        <img
-                                            src={item.image_url}
-                                            alt={item.title}
-                                            className="h-48 w-full object-cover"
-                                        />
-                                    ) : (
-                                        <div className="h-48 w-full bg-gray-100" />
-                                    )}
-                                    <div className="p-6 text-left">
-                                        <h3 className="text-lg font-semibold text-gray-900">
+                                    <div className="relative h-48 overflow-hidden">
+                                        {item.image_url ? (
+                                            <img
+                                                src={item.image_url}
+                                                alt={item.title}
+                                                className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                                            />
+                                        ) : (
+                                            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+                                                <span className="text-4xl font-bold text-primary/30">
+                                                    {item.title.charAt(0)}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="p-5 text-center">
+                                        <h3 className="text-base font-semibold text-gray-900">
                                             {item.title}
                                         </h3>
-                                        <p className="text-sm text-gray-500">
+                                        <p className="mt-2 text-sm text-gray-500">
                                             {item.description}
                                         </p>
                                     </div>
@@ -232,24 +239,22 @@ export default function Academic({
             )}
 
             {/* FasilitasSection */}
-            <section className="bg-gray-50 py-24">
+            <section className="bg-gray-50 py-16">
                 <div className="mx-auto max-w-7xl px-6">
                     {/* HEADER */}
-                    <div className="mb-16 flex items-start justify-between">
-                        <div className="flex-1 text-center">
-                            <p className="mb-3 font-semibold text-primary">
-                                Fasilitas
-                            </p>
-                            <h2 className="text-3xl font-bold text-gray-900">
-                                Fasilitas Pendukung Pembelajaran
-                            </h2>
-                            <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
-                        </div>
+                    <div className="relative mb-8 text-center md:mb-12">
+                        <p className="mb-3 font-semibold text-primary">
+                            Fasilitas
+                        </p>
+                        <h2 className="text-3xl font-bold text-gray-900">
+                            Fasilitas Pendukung Pembelajaran
+                        </h2>
+                        <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
 
-                        {/* Lihat Semua Button */}
+                        {/* Lihat Semua Button - Desktop (top right) */}
                         <Link
                             href="/ruang-kelas"
-                            className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
+                            className="absolute top-0 right-0 hidden items-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm text-white transition hover:bg-primary/90 md:flex"
                         >
                             Lihat Semua
                             <ArrowRight className="h-4 w-4" />
@@ -257,7 +262,7 @@ export default function Academic({
                     </div>
 
                     {/* FACILITY CARDS - Show 4 items from "Umum" category */}
-                    <div className="grid gap-8 md:grid-cols-4">
+                    <div className="grid gap-6 md:grid-cols-4">
                         {fasilitas
                             .filter((item) => item.category === 'umum')
                             .slice(0, 4)
@@ -279,28 +284,37 @@ export default function Academic({
                                     iconMap[item.slug] || BookOpen;
 
                                 return (
-                                    <Link
+                                    <div
                                         key={item.id}
-                                        href={`/fasilitas/${item.slug}`}
-                                        className="group cursor-pointer rounded-3xl border border-gray-100 bg-white p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                                        className="rounded-2xl border border-gray-100 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:rounded-3xl md:p-8"
                                     >
                                         {/* Icon Container */}
-                                        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50">
-                                            <IconComponent className="h-7 w-7 text-primary" />
+                                        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 md:mb-4 md:h-14 md:w-14">
+                                            <IconComponent className="h-6 w-6 text-primary md:h-7 md:w-7" />
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className="mb-2 font-semibold text-gray-900">
+                                        <h3 className="mb-2 text-sm font-semibold text-gray-900 md:text-base">
                                             {item.name}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-sm leading-relaxed text-gray-500">
+                                        <p className="text-xs leading-relaxed text-gray-500 md:text-sm">
                                             {item.description}
                                         </p>
-                                    </Link>
+                                    </div>
                                 );
                             })}
+                    </div>
+
+                    {/* Lihat Semua Button - Mobile */}
+                    <div className="flex justify-center pt-6 md:hidden">
+                        <Link
+                            href="/ruang-kelas"
+                            className="rounded-xl bg-primary px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-primary/90 hover:shadow-xl"
+                        >
+                            Lihat Semua
+                        </Link>
                     </div>
                 </div>
             </section>

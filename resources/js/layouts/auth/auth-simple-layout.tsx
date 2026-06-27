@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
-import AppLogoIcon from '@/components/app-logo-icon';
 import { welcome } from '@/routes';
 import type { AuthLayoutProps } from '@/types';
+import logo from '@/assets/images/sdnjinggotanlogo.png';
 
 export default function AuthSimpleLayout({
     children,
@@ -9,28 +9,45 @@ export default function AuthSimpleLayout({
     description,
 }: AuthLayoutProps) {
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
-            <div className="w-full max-w-sm">
-                <div className="flex flex-col gap-8">
+        <div className="flex min-h-svh flex-col items-center justify-center bg-linear-to-b from-primary-soft to-white p-6 md:p-10">
+            <div className="relative z-10 w-full max-w-md">
+                <div className="flex flex-col gap-6">
+                    {/* Logo and Brand */}
                     <div className="flex flex-col items-center gap-4">
                         <Link
                             href={welcome()}
-                            className="flex flex-col items-center gap-2 font-medium"
+                            className="flex flex-col items-center gap-3"
                         >
-                            <div className="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-                                <AppLogoIcon className="size-9 fill-current text-[var(--foreground)] dark:text-white" />
+                            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-lg">
+                                <img
+                                    src={logo}
+                                    alt="SDN Jinggotan Logo"
+                                    className="h-14 w-14 object-contain"
+                                />
                             </div>
-                            <span className="sr-only">{title}</span>
+                            <div className="text-center">
+                                <h1 className="text-xl font-bold text-gray-900">
+                                    SDN Jinggotan
+                                </h1>
+                                <p className="text-sm text-gray-500">
+                                    Admin Panel
+                                </p>
+                            </div>
                         </Link>
+                    </div>
 
-                        <div className="space-y-2 text-center">
-                            <h1 className="text-xl font-medium">{title}</h1>
-                            <p className="text-center text-sm text-muted-foreground">
+                    {/* Form Card */}
+                    <div className="rounded-2xl bg-white p-6 shadow-lg md:p-8">
+                        <div className="mb-6 text-center">
+                            <h2 className="text-xl font-bold text-gray-900">
+                                {title}
+                            </h2>
+                            <p className="mt-2 text-sm text-gray-500">
                                 {description}
                             </p>
                         </div>
+                        {children}
                     </div>
-                    {children}
                 </div>
             </div>
         </div>

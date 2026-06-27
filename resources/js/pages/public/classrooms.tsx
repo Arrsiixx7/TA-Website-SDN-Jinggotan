@@ -75,11 +75,12 @@ export default function Classrooms({ facilities, roomFacilities }: Props) {
             {/* RuangHero */}
             <section className="bg-linear-to-b from-primary-soft to-white pt-40 pb-28">
                 <div className="mx-auto max-w-5xl px-6 text-center">
-                    <p className="mb-4 font-semibold tracking-wide text-primary">
+                    <span className="mb-6 inline-block rounded-full bg-primary-soft px-4 py-2 text-sm font-semibold text-primary">
                         Fasilitas Akademik
-                    </p>
-                    <h1 className="mb-6 text-4xl leading-tight font-bold text-gray-900 md:text-5xl">
-                        Ruang Kelas & Sarana Pembelajaran
+                    </span>
+                    <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
+                        Ruang Kelas & Sarana{' '}
+                        <span className="text-secondary">Pembelajaran</span>
                     </h1>
                     <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-gray-600">
                         Lingkungan belajar yang nyaman, bersih, dan mendukung
@@ -92,38 +93,41 @@ export default function Classrooms({ facilities, roomFacilities }: Props) {
             </section>
 
             {/* RuangStats */}
-            <section className="bg-gray-50 py-24">
-                <div className="mx-auto max-w-6xl px-6">
-                    <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-                        <div className="rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-extrabold text-primary">
+            <section className="bg-gray-50 py-16 md:py-24">
+                <div className="mx-auto max-w-7xl px-6">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {stats.kelas || 7}
                             </p>
-                            <p className="text-sm tracking-wide text-gray-500">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-sm md:tracking-wide">
                                 Ruang Kelas
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-extrabold text-primary">
+                        <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {stats.lab || 1}
                             </p>
-                            <p className="text-sm tracking-wide text-gray-500">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-sm md:tracking-wide">
                                 Lab Komputer
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-extrabold text-primary">
+                        <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                 {stats.perpustakaan || 1}
                             </p>
-                            <p className="text-sm tracking-wide text-gray-500">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-sm md:tracking-wide">
                                 Perpustakaan
                             </p>
                         </div>
-                        <div className="rounded-3xl border border-primary/10 bg-white p-10 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                            <p className="mb-3 text-4xl font-extrabold text-primary">
-                                100<span className="ml-1 text-2xl">%</span>
+                        <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg md:rounded-3xl md:p-10">
+                            <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
+                                100
+                                <span className="ml-1 text-2xl md:text-3xl">
+                                    %
+                                </span>
                             </p>
-                            <p className="text-sm tracking-wide text-gray-500">
+                            <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-sm md:tracking-wide">
                                 Layak Pakai
                             </p>
                         </div>

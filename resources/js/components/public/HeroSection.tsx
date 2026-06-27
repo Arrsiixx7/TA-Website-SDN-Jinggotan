@@ -45,7 +45,7 @@ export default function HeroSection({
                             href={route('public.ppdb')}
                             className="rounded-2xl bg-secondary px-8 py-3 font-semibold text-white shadow-xl transition duration-300 hover:scale-105 hover:bg-secondary/90"
                         >
-                            PPDB 2026
+                            SPMB 2026
                         </Link>
                         <Link
                             href={route('public.profile')}

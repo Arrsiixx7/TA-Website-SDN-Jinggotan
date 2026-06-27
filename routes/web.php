@@ -52,8 +52,8 @@ Route::name('public.')->group(function () {
     Route::get('/siswa', [HomeController::class, 'students'])->name('students');
     Route::get('/ruang-kelas', [HomeController::class, 'classrooms'])->name('classrooms');
     
-    // PPDB (static)
-    Route::get('/ppdb', [HomeController::class, 'ppdb'])->name('ppdb');
+    // SPMB (static)
+    Route::get('/spmb', [HomeController::class, 'ppdb'])->name('ppdb');
     
     // Contact
     Route::get('/kontak', [ContactController::class, 'index'])->name('contact');
@@ -67,6 +67,7 @@ Route::name('public.')->group(function () {
 */
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    Route::redirect('/', '/admin/dashboard');
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     
     // Messages

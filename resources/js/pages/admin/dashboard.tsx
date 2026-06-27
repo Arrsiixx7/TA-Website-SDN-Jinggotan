@@ -177,7 +177,7 @@ export default function AdminDashboard({
         <AdminLayout>
             <Head title="Dashboard Admin" />
 
-            <div className="-ml-4 space-y-4 sm:-ml-6">
+            <div className="space-y-4 sm:space-y-6">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div>
@@ -231,14 +231,14 @@ export default function AdminDashboard({
                 </div>
 
                 {/* Charts */}
-                <div className="grid gap-4 lg:grid-cols-3">
+                <div className="grid gap-3 lg:grid-cols-3">
                     {/* Area Chart - 7-day message trend */}
-                    <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm lg:col-span-2">
-                        <div className="mb-6">
-                            <h2 className="text-lg font-semibold text-gray-900">
+                    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm lg:col-span-2">
+                        <div className="mb-4">
+                            <h2 className="text-base font-semibold text-gray-900">
                                 Tren Pesan
                             </h2>
-                            <div className="mt-1 flex flex-wrap gap-3 text-sm text-gray-500">
+                            <div className="mt-1 flex flex-wrap gap-2 text-xs text-gray-500">
                                 <span>
                                     Total:{' '}
                                     <b className="text-gray-900">
@@ -260,7 +260,7 @@ export default function AdminDashboard({
                                 </span>
                             </div>
                         </div>
-                        <ResponsiveContainer width="100%" height={280}>
+                        <ResponsiveContainer width="100%" height={200}>
                             <AreaChart data={safeChartData}>
                                 <defs>
                                     <linearGradient
@@ -316,11 +316,11 @@ export default function AdminDashboard({
                     </div>
 
                     {/* Bar Chart - Stats overview */}
-                    <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
-                        <h2 className="mb-6 text-lg font-semibold text-gray-900">
+                    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+                        <h2 className="mb-4 text-base font-semibold text-gray-900">
                             Statistik
                         </h2>
-                        <ResponsiveContainer width="100%" height={280}>
+                        <ResponsiveContainer width="100%" height={200}>
                             <BarChart data={barChartData}>
                                 <CartesianGrid
                                     strokeDasharray="3 3"

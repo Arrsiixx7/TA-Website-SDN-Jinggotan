@@ -92,14 +92,22 @@ class HomeController extends Controller
     {
         $profile = \App\Models\SchoolProfile::first();
 
+        // Force refresh from database
+        $profile->refresh();
+
+        $stats = [
+            'total_students' => (int) ($profile->total_students ?? 0),
+            'male_students' => (int) ($profile->male_students ?? 0),
+            'female_students' => (int) ($profile->female_students ?? 0),
+            'total_classes' => \App\Models\ClassDistribution::count(),
+        ];
+
+        \Log::info('DEBUG students page - Raw profile:', $profile->getAttributes());
+        \Log::info('DEBUG students page - Stats being sent:', $stats);
+
         return Inertia::render('public/students', [
             'classDistributions' => \App\Models\ClassDistribution::all(),
-            'stats' => [
-                'total_students' => $profile->total_students ?? 0,
-                'male_students' => $profile->male_students ?? 0,
-                'female_students' => $profile->female_students ?? 0,
-                'total_classes' => \App\Models\ClassDistribution::count(),
-            ],
+            'stats' => $stats,
             'studentAchievements' => \App\Models\Achievement::latest()->take(3)->get(),
         ]);
     }

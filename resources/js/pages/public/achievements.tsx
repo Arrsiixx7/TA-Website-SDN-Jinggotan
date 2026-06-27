@@ -73,39 +73,39 @@ export default function Achievements({ achievements }: Props) {
 
             {/* Stats */}
             {stats.total > 0 && (
-                <section className="bg-gray-50 py-24">
-                    <div className="mx-auto max-w-6xl px-6">
-                        <div className="grid grid-cols-3 gap-8 md:gap-12">
-                            <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Trophy className="h-6 w-6 text-primary" />
+                <section className="bg-gray-50 py-16 md:py-24">
+                    <div className="mx-auto max-w-7xl px-6">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                            <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg md:rounded-3xl md:p-8">
+                                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 md:h-12 md:w-12">
+                                    <Trophy className="h-5 w-5 text-primary md:h-6 md:w-6" />
                                 </div>
-                                <p className="text-4xl font-extrabold text-primary">
+                                <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                     {stats.total}
                                 </p>
-                                <p className="mt-1 text-xs tracking-wider text-gray-500 uppercase">
+                                <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs">
                                     Total Prestasi
                                 </p>
                             </div>
-                            <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Award className="h-6 w-6 text-primary" />
+                            <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg md:rounded-3xl md:p-8">
+                                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 md:h-12 md:w-12">
+                                    <Award className="h-5 w-5 text-primary md:h-6 md:w-6" />
                                 </div>
-                                <p className="text-4xl font-extrabold text-primary">
+                                <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                     {stats.akademik}
                                 </p>
-                                <p className="mt-1 text-xs tracking-wider text-gray-500 uppercase">
+                                <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs">
                                     Akademik
                                 </p>
                             </div>
-                            <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Medal className="h-6 w-6 text-primary" />
+                            <div className="rounded-2xl border border-primary/10 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg md:rounded-3xl md:p-8">
+                                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 md:h-12 md:w-12">
+                                    <Medal className="h-5 w-5 text-primary md:h-6 md:w-6" />
                                 </div>
-                                <p className="text-4xl font-extrabold text-primary">
+                                <p className="mb-2 text-4xl font-extrabold text-primary md:mb-3 md:text-5xl">
                                     {stats.nonAkademik}
                                 </p>
-                                <p className="mt-1 text-xs tracking-wider text-gray-500 uppercase">
+                                <p className="text-[10px] tracking-wider text-gray-500 uppercase md:text-xs">
                                     Non Akademik
                                 </p>
                             </div>
@@ -116,7 +116,7 @@ export default function Achievements({ achievements }: Props) {
 
             {/* Filter & Search */}
             <section className="bg-white py-12">
-                <div className="mx-auto max-w-6xl px-6">
+                <div className="mx-auto max-w-7xl px-6">
                     {/* Search */}
                     <div className="mb-6 flex justify-center">
                         <div className="relative w-full max-w-md">
@@ -126,7 +126,7 @@ export default function Achievements({ achievements }: Props) {
                                 placeholder="Cari prestasi..."
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className="w-full rounded-full border border-primary/20 py-3 pr-5 pl-11 text-sm transition outline-none focus:ring-2 focus:ring-primary/40"
+                                className="w-full rounded-full border border-gray-300 bg-white py-3 pr-5 pl-11 text-sm text-gray-800 placeholder-gray-400 transition outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                             />
                         </div>
                     </div>

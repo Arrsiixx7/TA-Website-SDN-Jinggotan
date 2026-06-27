@@ -15,9 +15,11 @@ export default function VisionMissionSection({
                 {/* Header */}
                 <div className="mb-12 text-center">
                     <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
-                        Visi & Misi
+                        Tentang Sekolah
                     </h2>
-                    <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
+                    <p className="mt-2 text-sm font-medium text-primary">
+                        Visi & Misi
+                    </p>
                 </div>
 
                 <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -44,23 +46,23 @@ export default function VisionMissionSection({
                     </div>
 
                     {/* Right: Vision & Mission Content */}
-                    <div className="space-y-6">
-                        {/* Visi */}
-                        <div className="rounded-2xl border border-primary/10 bg-gray-50 p-6 shadow-sm transition duration-300 hover:shadow-md">
-                            <h3 className="mb-3 text-xl font-bold text-gray-800">
+                    <div className="space-y-4">
+                        {/* Visi Card */}
+                        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                            <h3 className="mb-2 text-base font-bold text-gray-800">
                                 Visi
                             </h3>
-                            <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+                            <p className="text-sm leading-relaxed text-gray-600">
                                 {visionMission.vision}
                             </p>
                         </div>
 
-                        {/* Misi */}
-                        <div className="rounded-2xl border border-primary/10 bg-gray-50 p-6 shadow-sm transition duration-300 hover:shadow-md">
-                            <h3 className="mb-3 text-xl font-bold text-gray-800">
+                        {/* Misi Card */}
+                        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                            <h3 className="mb-2 text-base font-bold text-gray-800">
                                 Misi
                             </h3>
-                            <ul className="space-y-2 text-sm text-gray-600 md:text-base">
+                            <ul className="space-y-2 text-sm text-gray-600">
                                 {visionMission.mission
                                     .split('\n')
                                     .filter((item) => item.trim() !== '')
@@ -69,9 +71,7 @@ export default function VisionMissionSection({
                                             key={idx}
                                             className="flex items-start gap-2"
                                         >
-                                            <span className="mt-1 text-xs text-primary">
-                                                &#9679;
-                                            </span>
+                                            <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
                                             <span>
                                                 {item.replace(/^\d+\.\s*/, '')}
                                             </span>

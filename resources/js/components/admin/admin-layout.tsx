@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { Link, router, usePage } from '@inertiajs/react';
 import { route } from '@/helpers/route';
 import logo from '@/assets/images/sdnjinggotanlogo.png';
 import {
@@ -91,7 +91,7 @@ export default function AdminLayout({ children }: Props) {
             )}
 
             <aside
-                className={`fixed inset-y-0 left-0 z-30 w-64 transform bg-slate-900 shadow-xl transition-transform duration-300 ease-in-out lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                className={`fixed inset-y-0 left-0 z-30 w-56 transform bg-slate-900 transition-transform duration-300 ease-in-out lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
             >
                 <div className="flex h-full flex-col">
                     <div className="flex h-16 items-center justify-between bg-slate-950 px-4 sm:px-6">
@@ -118,7 +118,7 @@ export default function AdminLayout({ children }: Props) {
                         </button>
                     </div>
 
-                    <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
+                    <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-3">
                         <p className="px-3 text-[10px] font-semibold tracking-wider text-slate-500 uppercase">
                             Menu Utama
                         </p>
@@ -131,14 +131,14 @@ export default function AdminLayout({ children }: Props) {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${isActive ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+                                    className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${isActive ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
                                 >
-                                    <item.icon className="h-5 w-5 shrink-0" />
+                                    <item.icon className="h-4 w-4 shrink-0" />
                                     <span>{item.name}</span>
                                 </Link>
                             );
                         })}
-                        <p className="mt-6 px-3 text-[10px] font-semibold tracking-wider text-slate-500 uppercase">
+                        <p className="mt-4 px-3 text-[10px] font-semibold tracking-wider text-slate-500 uppercase">
                             Konten
                         </p>
                         {navigation.slice(4).map((item) => {
@@ -150,44 +150,55 @@ export default function AdminLayout({ children }: Props) {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${isActive ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+                                    className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${isActive ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
                                 >
-                                    <item.icon className="h-5 w-5 shrink-0" />
+                                    <item.icon className="h-4 w-4 shrink-0" />
                                     <span>{item.name}</span>
                                 </Link>
                             );
                         })}
                     </nav>
 
-                    <div className="space-y-2 border-t border-slate-800 p-4">
+                    <div className="space-y-0.5 border-t border-slate-800 px-2 py-3">
                         <Link
                             href={route('public.home')}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+                            className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
                         >
-                            <Home className="h-5 w-5" /> Lihat Website
+                            <Home className="h-4 w-4" /> Lihat Website
                         </Link>
-                        <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-red-600/10 hover:text-red-400">
-                            <LogOut className="h-5 w-5" /> Keluar
+                        <button
+                            onClick={() => router.post(route('logout'))}
+                            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-red-600/10 hover:text-red-400"
+                        >
+                            <LogOut className="h-4 w-4" /> Keluar
                         </button>
                     </div>
                 </div>
             </aside>
 
-            <div className="lg:pl-64">
-                <div className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-white px-4 lg:hidden">
+            <div className="pl-0 lg:pl-25">
+                {/* Mobile top bar */}
+                <div className="fixed top-0 right-0 left-0 z-10 flex h-16 items-center justify-between border-b bg-white px-4 lg:hidden">
                     <button
                         onClick={() => setSidebarOpen(true)}
-                        className="text-gray-500 hover:text-gray-700"
+                        className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"
                     >
                         <Menu className="h-5 w-5" />
                     </button>
-                    <span className="text-sm font-medium text-gray-900">
-                        SDN Jinggotan
-                    </span>
-                    <div className="h-5 w-5" />
+                    <div className="flex items-center gap-2">
+                        <img
+                            src={logo}
+                            alt="SDN Jinggotan Logo"
+                            className="h-7 w-7 rounded-lg"
+                        />
+                        <span className="text-sm font-semibold text-gray-900">
+                            SDN Jinggotan
+                        </span>
+                    </div>
+                    <div className="w-9" />
                 </div>
 
-                <main className="p-4 sm:p-6">{children}</main>
+                <main className="p-4 pt-16 sm:p-6">{children}</main>
             </div>
         </div>
     );

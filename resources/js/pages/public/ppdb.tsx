@@ -44,7 +44,7 @@ export default function PPDB() {
 
     return (
         <>
-            <Head title="PPDB - SDN Jinggotan" />
+            <Head title="SPMB - SDN Jinggotan" />
 
             {/* PPDBHero - Type A (Dark Overlay with bg image) */}
             <section
@@ -55,7 +55,7 @@ export default function PPDB() {
                 <div className="relative z-10 mx-auto w-full max-w-7xl px-6 text-center text-white">
                     <div className="mx-auto max-w-3xl">
                         <span className="mb-5 inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm tracking-wide backdrop-blur-md">
-                            PPDB 2026
+                            SPMB 2026
                         </span>
                         <h1 className="text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
                             Penerimaan Peserta Didik Baru
@@ -66,7 +66,7 @@ export default function PPDB() {
                         </p>
                         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                             <a
-                                href="https://wa.me/628123456789"
+                                href="https://wa.me/6285229393771"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="rounded-2xl bg-secondary px-8 py-3 font-semibold text-white shadow-xl transition duration-300 hover:scale-105 hover:bg-secondary/90"
@@ -232,7 +232,7 @@ export default function PPDB() {
                             Alur Pendaftaran
                         </p>
                         <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-                            Proses Pendaftaran PPDB
+                            Proses Pendaftaran SPMB
                         </h2>
                         <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-primary" />
                     </div>
